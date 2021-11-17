@@ -13,12 +13,6 @@ export class Users {
   @Column()
   password: string;
 
-  @Column()
-  create_at: Date;
-
-  @Column()
-  delete_at: Date;
-
   @OneToMany(() => Users_Roles, (userRoles) => userRoles.users)
   @JoinColumn({ name: 'id', referencedColumnName: 'user_id' })
   user: Users[];

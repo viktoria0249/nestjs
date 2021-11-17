@@ -22,8 +22,6 @@ import {
       const user = new Users();
       user.login = createUserDto.login;
       user.password = createUserDto.password;
-      user.create_at= createUserDto.create_at;
-      user.delete_at= createUserDto.delete_at;
       return this.UsersService.create(user);
     }
   
@@ -44,7 +42,7 @@ import {
     @Put(':id')
     async update(
       @Param('id') id: string,
-      @Body() { login, password, create_at, delete_at }: UpdateUserDto,
+      @Body() { login, password}: UpdateUserDto,
     ): Promise<Users> {
       const user = await this.UsersService.findOne(id);
       if (user === undefined) {
@@ -52,8 +50,6 @@ import {
       }
       user.login = login;
       user.password = password;
-      user.create_at = create_at;
-      user.delete_at = delete_at;
       return this.UsersService.update(user);
     }
   

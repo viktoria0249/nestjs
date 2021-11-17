@@ -1,0 +1,9 @@
+{
+    "type": "postgres",
+    "port": 5432,
+    "username": "postgres",
+    "password": "i69uvazah",
+    "database": "db_my_app",
+    "synchronize": true,
+    "entities":[]
+  }
