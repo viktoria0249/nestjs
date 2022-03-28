@@ -19,7 +19,6 @@ export class RolesService {
     }
 
     create(role: Roles): Promise<Roles> {
-        delete role.id;
         return this.RolesRepository.save(role);
     }
 

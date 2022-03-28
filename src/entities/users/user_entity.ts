@@ -1,5 +1,5 @@
 import { Entity, Column, PrimaryGeneratedColumn, OneToMany, JoinColumn } from 'typeorm';
-import { Users_Roles } from '../users_roles/users_roles_entity';
+import { Users_roles } from '../users_roles/users_roles_entity';
 import { User_Info } from '../user_info/user_info_entity';
 
 @Entity()
@@ -13,11 +13,11 @@ export class Users {
   @Column()
   password: string;
 
-  @OneToMany(() => Users_Roles, (userRoles) => userRoles.users)
+  @OneToMany(type => Users_roles, userRoles => userRoles.users)
   @JoinColumn({ name: 'id', referencedColumnName: 'user_id' })
   user: Users[];
 
-  @OneToMany(() => User_Info, (userInfo) => userInfo.infos)
-  @JoinColumn({ name: 'id', referencedColumnName: 'user_id' })
+  @OneToMany(type => User_Info, userInfo => userInfo.infos)
+  @JoinColumn({ name: 'id', referencedColumnName: 'uder_id' })
   info: Users[];
 }
